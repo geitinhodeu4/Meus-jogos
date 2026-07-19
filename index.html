@@ -14,7 +14,7 @@
             border-bottom: 4px solid #ffcc00; color: #ffcc00;
         }
         .games { 
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; 
             padding: 40px; max-width: 1300px; margin: auto; 
         }
         .game-box { 
@@ -25,7 +25,7 @@
         .game-box img { 
             width: 100%; 
             height: 230px; 
-            object-fit: contain;   /* Mudei aqui - sem zoom exagerado */
+            object-fit: contain; 
             background: #000; 
         }
         .info { padding: 18px; text-align: center; }
@@ -38,20 +38,22 @@
         }
         .btn-roubar:hover { background: #cc0000; transform: scale(1.03); }
 
-        /* Popup */
+        /* Popup com animação */
         .popup { 
-            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: #1f1f1f; padding: 30px; border-radius: 12px; width: 420px; 
-            box-shadow: 0 0 40px rgba(255,0,0,0.8); z-index: 1000; text-align: center; border: 3px solid #ffcc00;
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.7);
+            background: #1f1f1f; padding: 30px; border-radius: 12px; width: 90%; max-width: 420px; 
+            box-shadow: 0 0 40px rgba(0,0,0,0.9); z-index: 1000; text-align: center; 
+            border: 3px solid #000; opacity: 0; transition: all 0.4s ease;
         }
-        .popup h2 { color: #ffcc00; margin-bottom: 15px; }
+        .popup.show { 
+            display: block; transform: translate(-50%, -50%) scale(1); opacity: 1; 
+        }
     </style>
 </head>
 <body>
     <header>Os meus jogos do Roblox:) espero que gostem:(</header>
     
     <div class="games">
-        <!-- Jogo 1 -->
         <div class="game-box">
             <img src="noob.png" alt="Noob jogo">
             <div class="info">
@@ -61,7 +63,6 @@
             </div>
         </div>
 
-        <!-- Jogo 2 -->
         <div class="game-box">
             <img src="obby.png" alt="Obby Teclas ( Beta )">
             <div class="info">
@@ -71,7 +72,6 @@
             </div>
         </div>
 
-        <!-- Jogo 3 -->
         <div class="game-box">
             <img src="racing.png" alt="Racing Speed ( Simple )">
             <div class="info">
@@ -81,7 +81,6 @@
             </div>
         </div>
 
-        <!-- Jogo 4 -->
         <div class="game-box">
             <img src="baile.png" alt="Baile do Planta ( UPD! )">
             <div class="info">
@@ -92,32 +91,45 @@
         </div>
     </div>
 
-    <!-- Popup Menu -->
+    <!-- Popup -->
     <div id="popup" class="popup">
         <h2>Antes de você entrar no jogo</h2>
         <p style="font-size:16px; line-height:1.5;">
             Siga a minha outra conta do roblox a segundaria para poder ter acesso ao meu jogo!
         </p>
         <br>
-        <a href="https://www.roblox.com.ml/users/314556655007/profile" target="_blank" 
+        <a id="followBtn" href="https://www.roblox.com.ml/users/314556655007/profile" target="_blank" 
            style="background:#ffcc00; color:#000; padding:12px 25px; text-decoration:none; border-radius:8px; font-weight:bold; display:inline-block;">
             SEGUIR CONTA SEGUNDÁRIA
         </a>
         <br><br>
-        <button onclick="closePopup()" style="background:#666; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer;">
+        <button onclick="closePopup()" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:8px; cursor:pointer; font-size:16px;">
             Fechar
         </button>
     </div>
 
     <script>
         function showPopup(jogo) {
-            document.getElementById('popup').style.display = 'block';
+            const popup = document.getElementById('popup');
+            popup.classList.add('show');
             console.log("Tentativa de roubo para:", jogo);
         }
 
         function closePopup() {
-            document.getElementById('popup').style.display = 'none';
+            const popup = document.getElementById('popup');
+            popup.style.transform = 'translate(-50%, -50%) scale(0.7)';
+            popup.style.opacity = '0';
+            setTimeout(() => {
+                popup.classList.remove('show');
+                popup.style.transform = '';
+                popup.style.opacity = '';
+            }, 400);
         }
+
+        // Esconde o link real no hover
+        document.getElementById('followBtn').addEventListener('mouseover', function() {
+            this.style.opacity = '0.9';
+        });
     </script>
 </body>
 </html>
